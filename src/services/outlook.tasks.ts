@@ -20,7 +20,7 @@ interface ITodoService {
 }
 
 export class OutlookTasks implements ITodoService {
-    private _token: IToken;
+    public _token: IToken;
     private _baseUrl: string = 'https://outlook.office.com/api/v2.0';
     private _login: boolean;
 
@@ -31,7 +31,7 @@ export class OutlookTasks implements ITodoService {
      * at any point of time. Please modify this to use your own
      * clientId.
      */
-    clientId = 'bd9464a2-8b29-4165-a3c8-4d4dfd64b59a';
+    clientId = 'de67d33e-ac65-4189-933b-6312a6cba01c';
 
     constructor() {
 

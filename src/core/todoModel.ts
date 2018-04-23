@@ -18,6 +18,19 @@ export class TodoModel implements ITodoModel {
         this.key = key;
         this._outlookTasks = new OutlookTasks();
         this.todos = [];
+        if(this._outlookTasks._token == null) {
+            this._outlookTasks.login().then(() =>
+                {
+                    this.getTodo();
+                }
+            );
+        } else {
+            this.getTodo();
+        }
+        this.onChanges = [];
+    }
+
+    private getTodo(){
         this._outlookTasks.get().then(tasks => {
             this.todos = tasks;
             this.inform();
